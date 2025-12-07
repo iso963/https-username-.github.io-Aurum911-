@@ -123,14 +123,27 @@
     </table>
 
     <a href="index.html">⬅ العودة إلى الصفحة الرئيسية</a>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const table = document.getElementById("compare-table");
+    const compareList = JSON.parse(localStorage.getItem("compareList")) || [];
 
-</body> 
-    <nav class="navbar">
-    <div class="logo">Aurum911</div>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="compare.html">Comparison</a></li>
-        <li><a href="index.html#cars-section">Models</a></li>
-    </ul>
-</nav>
+    compareList.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${item.model}</td><td>${item.price}</td>`;
+        table.appendChild(row);
+    });
+});
+</script>
+
+<<table id="compare-table">
+    <tr>
+        <th>Model</th>
+        <th>Price</th>
+    </tr>
+</table>
+
+<a href="prices.html">⬅ العودة إلى الأسعار</a>
+> 
+
 </html>
