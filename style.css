@@ -72,3 +72,42 @@ select:hover {
     font-size: 1rem;
     line-height: 1.5;
 }
+/* ===== شريط التنقُّل ===== */
+.navbar {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 2px solid #d4a017;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #d4a017;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+    background: #d4a017;
+    color: white;
+}
