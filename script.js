@@ -1,35 +1,52 @@
-const translations = {
-  "ar": {
-    "title": "Aurum911 — الموقع الفاخر لموديلات بورش 911",
-    "header_home": "الرئيسية",
-    "header_models": "الموديلات",
-    "header_compare": "مقارنة",
-    "header_contact": "اتصل بنا",
-    "footer": "© 2025 Aurum911. جميع الحقوق محفوظة."
-  },
-  "en": {
-    "title": "Aurum911 — Luxury Porsche 911 Models",
-    "header_home": "Home",
-    "header_models": "Models",
-    "header_compare": "Compare",
-    "header_contact": "Contact",
-    "footer": "© 2025 Aurum911. All rights reserved."
-  },
-  // يمكن إضافة باقي اللغات هنا
-};
+<section id="cars-section">
+    <h2 class="gold-title">Porsche 911 Models</h2>
 
-const languageSelect = document.getElementById('language-select');
+    <div class="card">
+        <h3>911 Carrera</h3>
+        <p>Power: 379 HP</p>
+        <p>0–100 km/h: 4.2s</p>
+        <p>Top Speed: 293 km/h</p>
+    </div>
 
-languageSelect.addEventListener('change', (e) => {
-  const lang = e.target.value;
-  const t = translations[lang];
+    <div class="card">
+        <h3>911 Carrera S</h3>
+        <p>Power: 443 HP</p>
+        <p>0–100 km/h: 3.7s</p>
+        <p>Top Speed: 308 km/h</p>
+    </div>
 
-  if (!t) return;
+    <div class="card">
+        <h3>911 Turbo</h3>
+        <p>Power: 572 HP</p>
+        <p>0–100 km/h: 2.8s</p>
+        <p>Top Speed: 320 km/h</p>
+    </div>
 
-  document.title = t.title;
-  document.getElementById('nav-home').textContent = t.header_home;
-  document.getElementById('nav-models').textContent = t.header_models;
-  document.getElementById('nav-compare').textContent = t.header_compare;
-  document.getElementById('nav-contact').textContent = t.header_contact;
-  document.getElementById('footer-text').textContent = t.footer;
-});
+    <div class="card">
+        <h3>911 Turbo S</h3>
+        <p>Power: 640 HP</p>
+        <p>0–100 km/h: 2.6s</p>
+        <p>Top Speed: 330 km/h</p>
+    </div>
+
+    <div class="card">
+        <h3>911 GT3</h3>
+        <p>Power: 502 HP</p>
+        <p>0–100 km/h: 3.2s</p>
+        <p>Top Speed: 318 km/h</p>
+    </div>
+
+    <div class="card">
+        <h3>911 GT3 RS</h3>
+        <p>Power: 525 HP</p>
+        <p>0–100 km/h: 3.0s</p>
+        <p>Top Speed: 296 km/h</p>
+    </div>
+</section>
+.gold-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #d4a017;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
