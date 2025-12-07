@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche 911 Prices - Aurum911</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        const translations = {
+            ar: { title: "أسعار بورش 911", models: "الموديلات", price: "السعر", compare: "قارن" },
+            en: { title: "Porsche 911 Prices", models: "Models", price: "Price", compare: "Compare" },
+            de: { title: "Porsche 911 Preise", models: "Modelle", price: "Preis", compare: "Vergleichen" },
+            fr: { title: "Prix Porsche 911", models: "Modèles", price: "Prix", compare: "Comparer" },
+            es: { title: "Precios Porsche 911", models: "Modelos", price: "Precio", compare: "Comparar" },
+            it: { title: "Prezzi Porsche 911", models: "Modelli", price: "Prezzo", compare: "Confronta" },
+            pt: { title: "Preços Porsche 911", models: "Modelos", price: "Preço", compare: "Comparar" },
+            hi: { title: "पॉर्श 911 मूल्य", models: "मॉडल", price: "मूल्य", compare: "तुलना करें" },
+            bn: { title: "পোরশে 911 মূল্য", models: "মডেল", price: "মূল্য", compare: "তুলনা করুন" },
+            zh: { title: "保时捷911价格", models: "车型", price: "价格", compare: "比较" },
+            ja: { title: "ポルシェ911価格", models: "モデル", price: "価格", compare: "比較" }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById("page-title").innerText = translations[lang].title;
+            document.querySelectorAll(".models").forEach((el, i) => el.innerText = Object.values(translations[lang])[1] + ": " + el.dataset.model);
+            document.querySelectorAll(".prices").forEach((el, i) => el.innerText = Object.values(translations[lang])[2] + ": " + el.dataset.price);
+            document.querySelectorAll(".compare-btn").forEach(el => el.innerText = translations[lang].compare);
+        }
+    </script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Aurum911</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="compare.html">Comparison</a></li>
+        <li><a href="prices.html">Prices</a></li>
+        <li><a href="index.html#cars-section">Models</a></li>
+    </ul>
+</nav>
+
+<h1 id="page-title">Porsche 911 Prices</h1>
+
+<select onchange="setLanguage(this.value)">
+    <option value="en">English</option>
+    <option value="ar">العربية</option>
+    <option value="de">Deutsch</option>
+    <option value="fr">Français</option>
+    <option value="es">Español</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+    <option value="hi">हिन्दी</option>
+    <option value="bn">বাংলা</option>
+    <option value="zh">中文</option>
+    <option value="ja">日本語</option>
+</select>
+
+<section id="prices-section">
+    <div class="card">
+        <h3 class="models" data-model="911 Carrera">Models: 911 Carrera</h3>
+        <p class="prices" data-price="$110,000 – $125,000">Price: $110,000 – $125,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+
+    <div class="card">
+        <h3 class="models" data-model="911 Carrera S">Models: 911 Carrera S</h3>
+        <p class="prices" data-price="$125,000 – $145,000">Price: $125,000 – $145,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+
+    <div class="card">
+        <h3 class="models" data-model="911 Turbo">Models: 911 Turbo</h3>
+        <p class="prices" data-price="$182,000 – $200,000">Price: $182,000 – $200,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+
+    <div class="card">
+        <h3 class="models" data-model="911 Turbo S">Models: 911 Turbo S</h3>
+        <p class="prices" data-price="$215,000 – $240,000">Price: $215,000 – $240,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+
+    <div class="card">
+        <h3 class="models" data-model="911 GT3">Models: 911 GT3</h3>
+        <p class="prices" data-price="$170,000 – $190,000">Price: $170,000 – $190,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+
+    <div class="card">
+        <h3 class="models" data-model="911 GT3 RS">Models: 911 GT3 RS</h3>
+        <p class="prices" data-price="$225,000 – $250,000">Price: $225,000 – $250,000</p>
+        <button class="compare-btn">Compare</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
