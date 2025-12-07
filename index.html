@@ -1,54 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aurum911</title>
+<script>
+const translations = {
+    ar: {
+        title: "أوروم 911 - Aurum911",
+        description: "منصة متعددة اللغات تقدم خدمات عالمية.",
+        welcome: "مرحباً بك في موقعنا"
+    },
+    en: {
+        title: "Aurum911",
+        description: "A multilingual platform offering global services.",
+        welcome: "Welcome to our website"
+    },
+    de: {
+        title: "Aurum911",
+        description: "Eine mehrsprachige Plattform mit globalen Diensten.",
+        welcome: "Willkommen auf unserer Webseite"
+    },
+    fr: {
+        title: "Aurum911",
+        description: "Une plateforme multilingue offrant des services mondiaux.",
+        welcome: "Bienvenue sur notre site"
+    },
+    es: {
+        title: "Aurum911",
+        description: "Plataforma multilingüe con servicios globales.",
+        welcome: "Bienvenido a nuestro sitio web"
+    },
+    it: {
+        title: "Aurum911",
+        description: "Piattaforma multilingue con servizi globali.",
+        welcome: "Benvenuto nel nostro sito web"
+    },
+    pt: {
+        title: "Aurum911",
+        description: "Plataforma multilíngue com serviços globais.",
+        welcome: "Bem-vindo ao nosso site"
+    },
+    hi: {
+        title: "Aurum911",
+        description: "वैश्विक सेवाओं के साथ बहुभाषी प्लेटफ़ॉर्म।",
+        welcome: "हमारी वेबसाइट पर आपका स्वागत है"
+    },
+    bn: {
+        title: "Aurum911",
+        description: "গ্লোবাল পরিষেবা সহ একটি বহু ভাষিক প্ল্যাটফর্ম।",
+        welcome: "আমাদের ওয়েবসাইটে স্বাগতম"
+    },
+    zh: {
+        title: "Aurum911",
+        description: "提供全球服务的多语言平台。",
+        welcome: "欢迎来到我们的网站"
+    },
+    ja: {
+        title: "Aurum911",
+        description: "世界的なサービスを提供する多言語プラットフォーム。",
+        welcome: "当サイトへようこそ"
+    }
+};
 
-    <script>
-        const translations = {
-            ar: { title: "أوروم 911 - Aurum911", description: "منصة متعددة اللغات تقدم خدمات عالمية.", welcome: "مرحباً بك في موقعنا" },
-            en: { title: "Aurum911", description: "A multilingual platform offering global services.", welcome: "Welcome to our website" },
-            de: { title: "Aurum911", description: "Eine mehrsprachige Plattform mit globalen Diensten.", welcome: "Willkommen auf unserer Webseite" },
-            fr: { title: "Aurum911", description: "Une plateforme multilingue offrant des services mondiaux.", welcome: "Bienvenue sur notre site" },
-            es: { title: "Aurum911", description: "Plataforma multilingüe con servicios globales.", welcome: "Bienvenido a nuestro sitio web" },
-            it: { title: "Aurum911", description: "Piattaforma multilingue con servizi globali.", welcome: "Benvenuto nel nostro sito web" },
-            pt: { title: "Aurum911", description: "Plataforma multilíngue com serviços globais.", welcome: "Bem-vindo ao nosso site" },
-            hi: { title: "Aurum911", description: "वैश्विक सेवाओं के साथ बहुभाषी प्लेटफ़ॉर्म।", welcome: "हमारी वेबसाइट पर आपका स्वागत है" },
-            bn: { title: "Aurum911", description: "গ্লোবাল পরিষেবা সহ একটি বহু ভাষিক প্ল্যাটফর্ম।", welcome: "আমাদের ওয়েবসাইটে স্বাগতম" },
-            zh: { title: "Aurum911", description: "提供全球服务的多语言平台。", welcome: "欢迎来到我们的网站" },
-            ja: { title: "Aurum911", description: "世界的なサービスを提供する多言語プラットフォーム。", welcome: "当サイトへようこそ" }
-        };
-
-        function setLanguage(lang) {
-            document.getElementById("title").innerText = translations[lang].title;
-            document.getElementById("desc").innerText = translations[lang].description;
-            document.getElementById("welcome").innerText = translations[lang].welcome;
-        }
-    </script>
-
-</head>
-<body>
-
-    <h1 id="title">Aurum911</h1>
-    <p id="desc">A multilingual platform offering global services.</p>
-    <h2 id="welcome">Welcome to our website</h2>
-
-    <br>
-
-    <select onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="de">Deutsch</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="it">Italiano</option>
-        <option value="pt">Português</option>
-        <option value="hi">हिन्दी</option>
-        <option value="bn">বাংলা</option>
-        <option value="zh">中文</option>
-        <option value="ja">日本語</option>
-    </select>
-
-</body>
-</html>
+function setLanguage(lang) {
+    document.getElementById("title").innerText = translations[lang].title;
+    document.getElementById("desc").innerText = translations[lang].description;
+    document.getElementById("welcome").innerText = translations[lang].welcome;
+}
+</script>
