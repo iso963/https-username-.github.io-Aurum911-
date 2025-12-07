@@ -1,3 +1,27 @@
+// ===== إضافة زر Compare =====
+document.addEventListener("DOMContentLoaded", () => {
+    const compareButtons = document.querySelectorAll(".compare-btn");
+
+    compareButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const card = btn.parentElement;
+            const model = card.querySelector(".models").dataset.model;
+            const price = card.querySelector(".prices").dataset.price;
+
+            // حفظ البيانات في localStorage
+            let compareList = JSON.parse(localStorage.getItem("compareList")) || [];
+            // تحقق إذا كان الموديل موجود بالفعل
+            if (!compareList.some(item => item.model === model)) {
+                compareList.push({ model, price });
+                localStorage.setItem("compareList", JSON.stringify(compareList));
+                alert(model + " added to comparison!");
+            } else {
+                alert(model + " is already in comparison.");
+            }
+        });
+    });
+});
+
 <section id="cars-section">
     <h2 class="gold-title">Porsche 911 Models</h2>
 
