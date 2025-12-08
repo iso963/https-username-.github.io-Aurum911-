@@ -129,7 +129,6 @@ p {
 // استبدل هذه القيم بالقيم الحقيقية لمشروعك في Supabase
 const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
 const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
-
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // تحميل السيارات وعرضها
