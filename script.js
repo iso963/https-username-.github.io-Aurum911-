@@ -15,6 +15,8 @@ async function loadCars() {
         console.error('Supabase error:', error);
         return;
     }
+    setupCompare(data);
+
 // تهيئة قائمة المقارنة بعد تحميل السيارات
 async function setupCompare(cars) {
   const select1 = document.getElementById('compare-select1');
