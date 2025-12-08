@@ -83,3 +83,13 @@ function setupCompare(cars) {
 
 // تنفيذ عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', loadCars);
+// فلترة السيارات حسب البحث
+document.getElementById('searchInput').addEventListener('input', function() {
+    const filter = this.value.toLowerCase();
+    const cards = document.querySelectorAll('#cars-list .card');
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if(text.includes(filter)) card.style.display = '';
+        else card.style.display = 'none';
+    });
+});
