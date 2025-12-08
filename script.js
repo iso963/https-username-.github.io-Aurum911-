@@ -4,7 +4,12 @@ const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 // تحميل السيارات وعرضها
 async function loadCars() {
     const { data, error } = await supabase
-        .from('Cars')
+        .from('Cars') 
+        const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
+const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
+
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
         .select('*')
         .order('price_min', { ascending: true });
 
