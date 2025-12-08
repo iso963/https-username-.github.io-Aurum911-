@@ -1,146 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<<meta name="description" content="Aurum911: Explore Porsche 911 models, prices, and comparisons in multiple languages.">
-<meta name="keywords" content="Porsche 911, Aurum911, Porsche Prices, Car Comparison, Luxury Cars">
-<meta name="author" content="Aurum911">
-<link rel="canonical" href="https://iso963.github.io/Aurum911/">
-<meta name="robots" content="index, follow">
->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aurum911</title>
-
-    <script>
-        const translations = {
-            ar: { title: "أوروم 911 - Aurum911", description: "منصة متعددة اللغات تقدم خدمات عالمية.", welcome: "مرحباً بك في موقعنا" },
-            en: { title: "Aurum911", description: "A multilingual platform offering global services.", welcome: "Welcome to our website" },
-            de: { title: "Aurum911", description: "Eine mehrsprachige Plattform mit globalen Diensten.", welcome: "Willkommen auf unserer Webseite" },
-            fr: { title: "Aurum911", description: "Une plateforme multilingue offrant des services mondiaux.", welcome: "Bienvenue sur notre site" },
-            es: { title: "Aurum911", description: "Plataforma multilingüe con servicios globales.", welcome: "Bienvenido a nuestro sitio web" },
-            it: { title: "Aurum911", description: "Piattaforma multilingue con servizi globali.", welcome: "Benvenuto nel nostro sito web" },
-            pt: { title: "Aurum911", description: "Plataforma multilíngue com serviços globais.", welcome: "Bem-vindo ao nosso site" },
-            hi: { title: "Aurum911", description: "वैश्विक सेवाओं के साथ बहुभाषी प्लेटफ़ॉर्म।", welcome: "हमारी वेबसाइट पर आपका स्वागत है" },
-            bn: { title: "Aurum911", description: "গ্লোবাল পরিষেবা সহ একটি বহু ভাষিক প্ল্যাটফর্ম।", welcome: "আমাদের ওয়েবসাইটে স্বাগতম" },
-            zh: { title: "Aurum911", description: "提供全球服务的多语言平台。", welcome: "欢迎来到我们的网站" },
-            ja: { title: "Aurum911", description: "世界的なサービスを提供する多言語プラットフォーム。", welcome: "当サイトへようこそ" }
-        };
-
-        function setLanguage(lang) {
-            document.getElementById("title").innerText = translations[lang].title;
-            document.getElementById("desc").innerText = translations[lang].description;
-            document.getElementById("welcome").innerText = translations[lang].welcome;
-        }
-    </script>
-
-<<link rel="alternate" hreflang="en" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="ar" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="de" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="fr" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="es" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="it" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="pt" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="hi" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="bn" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="zh" href="https://iso963.github.io/Aurum911/index.html">
-<link rel="alternate" hreflang="ja" href="https://iso963.github.io/Aurum911/index.html">
->
-<body>
-<nav class="navbar">
-    <div class="logo">Aurum911</div>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="compare.html">Comparison</a></li>
-        <li><a href="#cars-section">Models</a></li>
-    </ul>
-</nav>
-
-    <h1 id="title">Aurum911</h1>
-    <p id="desc">A multilingual platform offering global services.</p>
-    <h2 id="welcome">Welcome to our website</h2>
-
-    <br>
-
-    <select onchange="setLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="ar">العربية</option>
-        <option value="de">Deutsch</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="it">Italiano</option>
-        <option value="pt">Português</option>
-        <option value="hi">हिन्दी</option>
-        <option value="bn">বাংলা</option>
-        <option value="zh">中文</option>
-        <option value="ja">日本語</option>
-    </select>
-
-</<h1 id="title">Aurum911</h1>
-<p id="desc">A multilingual platform offering global services.</p>
-<h2 id="welcome">Welcome to our website</h2>
->
-</html>
-<select onchange="setLanguage(this.value)">
-    <option value="en">English</option>
-    <option value="ar">العربية</option>
-    <option value="de">Deutsch</option>
-    <option value="fr">Français</option>
-    <option value="es">Español</option>
-    <option value="it">Italiano</option>
-    <option value="pt">Português</option>
-    <option value="hi">हिन्दी</option>
-    <option value="bn">বাংলা</option>
-    <option value="zh">中文</option>
-    <option value="ja">日本語</option>
-</select>
-<div style="margin: 20px auto; max-width: 600px;">
-    <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Search Models..." 
-        style="width: 100%; padding: 12px; font-size: 1.1rem; border: 2px solid #d4a017; border-radius: 10px;">
-</div>
-<section id="cars-section">
-<!DOCTYPE html>
-<html lang="ar">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurum911</title>
+  <meta name="description" content="Aurum911: Explore Porsche 911 models, prices, and comparisons in multiple languages.">
+  <meta name="keywords" content="Porsche 911, Aurum911, Porsche Prices, Car Comparison, Luxury Cars">
+  <meta name="author" content="Aurum911">
+  <link rel="canonical" href="https://iso963.github.io/Aurum911/">
+  <meta name="robots" content="index, follow">
 
-  <!-- ربط CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- مكتبة Supabase JS -->
+  <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-  <!-- كود الموقع -->
+  <!-- JS الخاص بالموقع -->
   <script src="script.js" defer></script>
-<<section id="cars-list">
-  <!-- السيارات ستظهر هنا تلقائيًا -->
-</section>
->
-<body>
 
-  <header>
-    <h1>أوروم 911 - Aurum911</h1>
+  <!-- دعم اللغات -->
+  <script>
+    const translations = {
+      ar: { title: "أوروم 911 - Aurum911", description: "منصة متعددة اللغات تقدم خدمات عالمية.", welcome: "مرحباً بك في موقعنا" },
+      en: { title: "Aurum911", description: "A multilingual platform offering global services.", welcome: "Welcome to our website" },
+      de: { title: "Aurum911", description: "Eine mehrsprachige Plattform mit globalen Diensten.", welcome: "Willkommen auf unserer Webseite" },
+      fr: { title: "Aurum911", description: "Une plateforme multilingue offrant des services mondiaux.", welcome: "Bienvenue sur notre site" },
+      es: { title: "Aurum911", description: "Plataforma multilingüe con servicios globales.", welcome: "Bienvenido a nuestro sitio web" },
+      it: { title: "Aurum911", description: "Piattaforma multilingue con servizi globali.", welcome: "Benvenuto nel nostro sito web" },
+      pt: { title: "Aurum911", description: "Plataforma multilíngue com serviços globais.", welcome: "Bem-vindo ao nosso site" },
+      hi: { title: "Aurum911", description: "वैश्विक सेवाओं के साथ बहुभाषी प्लेटफ़ॉर्म।", welcome: "हमारी वेबसाइट पर आपका स्वागत है" },
+      bn: { title: "Aurum911", description: "গ্লোবাল পরিষেবা সহ একটি বহু ভাষিক প্ল্যাটফর্ম।", welcome: "আমাদের ওয়েবসাইটে স্বাগতম" },
+      zh: { title: "Aurum911", description: "提供全球服务的多语言平台。", welcome: "欢迎来到我们的网站" },
+      ja: { title: "Aurum911", description: "世界的なサービスを提供する多言語プラットフォーム。", welcome: "当サイトへようこそ" }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById("title").innerText = translations[lang].title;
+      document.getElementById("desc").innerText = translations[lang].description;
+      document.getElementById("welcome").innerText = translations[lang].welcome;
+    }
+  </script>
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="ar" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="de" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="fr" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="es" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="it" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="pt" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="hi" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="bn" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="zh" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="ja" href="https://iso963.github.io/Aurum911/index.html">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Aurum911</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#cars-section">Models</a></li>
+      <li><a href="#compare-section">Comparison</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <h1 id="title">Aurum911</h1>
+    <p id="desc">A multilingual platform offering global services.</p>
+    <h2 id="welcome">Welcome to our website</h2>
   </header>
 
-  <!-- هنا سيظهر كل السيارات -->
-  <section id="cars-list">
-    <!-- السيارات ستظهر تلقائيًا -->
+  <!-- Language Selector -->
+  <div style="margin: 20px auto; max-width: 400px;">
+    <select onchange="setLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="de">Deutsch</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Português</option>
+      <option value="hi">हिन्दी</option>
+      <option value="bn">বাংলা</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+    </select>
+  </div>
+
+  <!-- Search -->
+  <div style="margin: 20px auto; max-width: 600px;">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="Search Models..." 
+      style="width: 100%; padding: 12px; font-size: 1.1rem; border: 2px solid #d4a017; border-radius: 10px;">
+  </div>
+
+  <!-- Cars List -->
+  <section id="cars-section">
+    <div id="cars-list">
+      <!-- السيارات ستظهر هنا تلقائيًا -->
+    </div>
+  </section>
+
+  <!-- Compare Section -->
+  <section id="compare-section">
+    <h2>Compare Cars</h2>
+    <select id="compare-select1">
+      <option value="">Select Car 1</option>
+    </select>
+    <select id="compare-select2">
+      <option value="">Select Car 2</option>
+    </select>
+    <button id="compare-button">Compare Now</button>
+    <div id="compare-result"></div>
   </section>
 
 </body>
 </html>
-<section id="compare-section" class="mb-6 p-4 bg-gray-100 rounded-lg shadow">
-  <h2>قارن بين السيارات</h2>
-  <select id="compare-select1">
-    <option value="">اختر السيارة الأولى</option>
-  </select>
-  <select id="compare-select2">
-    <option value="">اختر السيارة الثانية</option>
-  </select>
-  <button id="compare-button">قارن الآن</button>
-
-  <div id="compare-result" class="mt-4 p-4 bg-white rounded-lg shadow"></div>
-</section>
