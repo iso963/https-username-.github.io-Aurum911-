@@ -1,59 +1,67 @@
+// استبدل هذه القيم بالقيم الحقيقية لمشروعك في Supabase
 const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
 const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
 
 const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+// تحميل السيارات وعرضها
+async function loadCars() {
+    const { data: cars, error } = await supabase
+        .from('Cars')
         .select('*')
         .order('price_min', { ascending: true });
 
-    if(error) { console.error(error); return; }
+    if (error) {
+        console.error("Supabase error:", error);
+        return;
+    }
 
     const list = document.getElementById('cars-list');
     list.innerHTML = '';
-
-    data.forEach(c => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
+    cars.forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'card';
+        el.innerHTML = `
             <h3>${c.name} — ${c.year_range}</h3>
             <p>${c.description || ''}</p>
-            <p>HP: ${c.horsepower} — 0-100: ${c.zero_100}s — Top Speed: ${c.top_speed} km/h</p>
+            <p>HP: ${c.horsepower} — 0-100 km/h: ${c.zero_100}s — Top Speed: ${c.top_speed} km/h</p>
             <p>Price: $${c.price_min} – $${c.price_max}</p>
         `;
-        list.appendChild(card);
+        list.appendChild(el);
     });
 
-    setupCompare(data);
-
-    // فلترة البحث
-    document.getElementById('searchInput').addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        const cards = document.querySelectorAll('#cars-list .card');
-        cards.forEach(card => {
-            const text = card.innerText.toLowerCase();
-            card.style.display = text.includes(filter) ? '' : 'none';
-        });
-    });
+    setupCompare(cars);
+    setupSearch(cars);
 }
 
-// إعداد المقارنة
+// تهيئة المقارنة
 function setupCompare(cars) {
     const select1 = document.getElementById('compare-select1');
     const select2 = document.getElementById('compare-select2');
+    select1.innerHTML = '<option value="">Select Car 1</option>';
+    select2.innerHTML = '<option value="">Select Car 2</option>';
 
     cars.forEach(c => {
         const option1 = document.createElement('option');
-        option1.value = c.id; option1.textContent = c.name; select1.appendChild(option1);
+        option1.value = c.id;
+        option1.textContent = c.name;
+        select1.appendChild(option1);
+
         const option2 = document.createElement('option');
-        option2.value = c.id; option2.textContent = c.name; select2.appendChild(option2);
+        option2.value = c.id;
+        option2.textContent = c.name;
+        select2.appendChild(option2);
     });
 
-    document.getElementById('compare-button').addEventListener('click', () => {
+    document.getElementById('compare-button').onclick = () => {
         const car1 = cars.find(c => c.id == select1.value);
         const car2 = cars.find(c => c.id == select2.value);
         const resultDiv = document.getElementById('compare-result');
 
-        if(!car1 || !car2) { resultDiv.innerHTML = 'Please select two cars!'; return; }
+        if (!car1 || !car2) {
+            resultDiv.innerHTML = 'اختر سيارتين للمقارنة!';
+            return;
+        }
 
         resultDiv.innerHTML = `
             <h3>Comparison: ${car1.name} vs ${car2.name}</h3>
@@ -66,7 +74,29 @@ function setupCompare(cars) {
                 <tr><td>Price</td><td>$${car1.price_min} – $${car1.price_max}</td><td>$${car2.price_min} – $${car2.price_max}</td></tr>
             </table>
         `;
-    });
+    };
+}
+
+// تهيئة البحث
+function setupSearch(cars) {
+    const input = document.getElementById('searchInput');
+    input.oninput = () => {
+        const term = input.value.toLowerCase();
+        const filtered = cars.filter(c => c.name.toLowerCase().includes(term));
+        const list = document.getElementById('cars-list');
+        list.innerHTML = '';
+        filtered.forEach(c => {
+            const el = document.createElement('div');
+            el.className = 'card';
+            el.innerHTML = `
+                <h3>${c.name} — ${c.year_range}</h3>
+                <p>${c.description || ''}</p>
+                <p>HP: ${c.horsepower} — 0-100 km/h: ${c.zero_100}s — Top Speed: ${c.top_speed} km/h</p>
+                <p>Price: $${c.price_min} – $${c.price_max}</p>
+            `;
+            list.appendChild(el);
+        });
+    };
 }
 
 document.addEventListener('DOMContentLoaded', loadCars);
