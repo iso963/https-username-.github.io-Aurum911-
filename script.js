@@ -93,3 +93,7 @@ document.getElementById('searchInput').addEventListener('input', function() {
         else card.style.display = 'none';
     });
 });
+<select id="compare-select1"><option value="">Select Car 1</option></select>
+<select id="compare-select2"><option value="">Select Car 2</option></select>
+<button id="compare-button">Compare Now</button>
+<div id="compare-result"></div>
