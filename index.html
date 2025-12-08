@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
->
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurum911</title>
@@ -18,10 +16,23 @@
   <!-- Supabase JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-  <!-- JS الخاص بالموقع -->
+  <!-- JS -->
   <script src="script.js" defer></script>
 
-  <!-- دعم اللغات -->
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="en" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="ar" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="de" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="fr" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="es" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="it" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="pt" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="hi" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="bn" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="zh" href="https://iso963.github.io/Aurum911/index.html">
+  <link rel="alternate" hreflang="ja" href="https://iso963.github.io/Aurum911/index.html">
+
+  <!-- Multilingual -->
   <script>
     const translations = {
       ar: { title: "أوروم 911 - Aurum911", description: "منصة متعددة اللغات تقدم خدمات عالمية.", welcome: "مرحباً بك في موقعنا" },
@@ -43,19 +54,6 @@
       document.getElementById("welcome").innerText = translations[lang].welcome;
     }
   </script>
-
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="en" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="ar" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="de" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="fr" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="es" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="it" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="pt" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="hi" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="bn" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="zh" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="ja" href="https://iso963.github.io/Aurum911/index.html">
 </head>
 
 <body>
@@ -77,7 +75,7 @@
   </header>
 
   <!-- Language Selector -->
-  <div style="margin: 20px auto; max-width: 400px;">
+  <div class="language-selector">
     <select onchange="setLanguage(this.value)">
       <option value="en">English</option>
       <option value="ar">العربية</option>
@@ -94,12 +92,8 @@
   </div>
 
   <!-- Search -->
-  <div style="margin: 20px auto; max-width: 600px;">
-    <input 
-      type="text" 
-      id="searchInput" 
-      placeholder="Search Models..." 
-      style="width: 100%; padding: 12px; font-size: 1.1rem; border: 2px solid #d4a017; border-radius: 10px;">
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search Models...">
   </div>
 
   <!-- Cars List -->
@@ -112,12 +106,8 @@
   <!-- Compare Section -->
   <section id="compare-section">
     <h2>Compare Cars</h2>
-    <select id="compare-select1">
-      <option value="">Select Car 1</option>
-    </select>
-    <select id="compare-select2">
-      <option value="">Select Car 2</option>
-    </select>
+    <select id="compare-select1"><option value="">Select Car 1</option></select>
+    <select id="compare-select2"><option value="">Select Car 2</option></select>
     <button id="compare-button">Compare Now</button>
     <div id="compare-result"></div>
   </section>
