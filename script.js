@@ -1,8 +1,5 @@
-// Supabase setup
-const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co"; // ضع القيم الخاصة بك
-const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
-
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_URL = "https://abc123.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
 
 // تحميل السيارات وعرضها
 async function loadCars() {
