@@ -1,120 +1,33 @@
-/* ===== Reset عام ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+/* Reset عام */
+* { margin:0; padding:0; box-sizing:border-box; font-family: "Poppins", sans-serif; }
+body { background:#fff; color:#1a1a1a; padding:20px; text-align:center; }
 
-body {
-    background: #fefefe;
-    color: #1a1a1a;
-    padding: 20px;
-    text-align: center;
-}
+/* Navbar */
+.navbar { display:flex; justify-content:space-between; align-items:center; padding:15px 25px; border-bottom:2px solid #d4a017; position:sticky; top:0; background:#fff; }
+.navbar .logo { font-size:1.8rem; font-weight:700; color:#d4a017; }
+.navbar ul { list-style:none; display:flex; gap:25px; }
+.navbar ul li a { text-decoration:none; color:#1a1a1a; padding:8px 12px; border-radius:8px; transition:0.3s; }
+.navbar ul li a:hover { background:#d4a017; color:white; }
 
-/* ===== شريط التنقُّل ===== */
-.navbar {
-    width: 100%;
-    background: #ffffff;
-    border-bottom: 2px solid #d4a017;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+/* Header */
+h1 { font-size:3rem; font-weight:700; color:#d4a017; margin-bottom:10px; }
+h2 { font-size:1.8rem; margin-bottom:25px; color:#1a1a1a; }
+p { font-size:1.2rem; margin-bottom:20px; opacity:0.85; }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #d4a017;
-}
+/* Language Selector */
+.language-selector select { padding:10px 15px; font-size:1rem; border:2px solid #d4a017; border-radius:10px; cursor:pointer; }
 
-.navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
+/* Search */
+.search-container input { width:100%; padding:12px; font-size:1.1rem; border:2px solid #d4a017; border-radius:10px; margin-bottom:20px; }
 
-.navbar ul li a {
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: #1a1a1a;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
+/* Card */
+.card { background:white; border-radius:12px; padding:20px; margin:20px auto; max-width:600px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+.card h3 { color:#d4a017; font-size:1.5rem; margin-bottom:10px; }
+.card p { font-size:1rem; line-height:1.5; }
 
-.navbar ul li a:hover {
-    background: #d4a017;
-    color: white;
-}
-
-/* ===== العناوين ===== */
-h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #d4a017; /* ذهبي فاخر */
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 25px;
-    color: #1a1a1a;
-}
-
-/* ===== الوصف ===== */
-p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    opacity: 0.85;
-}
-
-/* ===== قائمة اللغات ===== */
-select {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: 2px solid #d4a017;
-    background: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #1a1a1a;
-    transition: 0.3s;
-}
-
-select:hover {
-    border-color: #b88810;
-    box-shadow: 0 0 10px rgba(212, 160, 23, 0.4);
-}
-
-/* ===== كرت معلومات السيارات ===== */
-#cars-list div,
-.card {
-    background: white;
-    border: 1px solid #eee;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 650px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#cars-list div:hover,
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-#cars-list h3,
-.card h3 {
-    color: #d4a017;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-}
-
-#cars-
+/* Compare */
+#compare-section { background:#f5f5f5; padding:20px; border-radius:12px; margin-top:30px; max-width:700px; margin-left:auto; margin-right:auto; }
+#compare-section select, #compare-section button { padding:5px 10px; margin-right:10px; border-radius:5px; border:1px solid #ccc; }
+#compare-result table { width:100%; border-collapse:collapse; margin-top:10px; }
+#compare-result th, #compare-result td { border:1px solid #ddd; padding:8px; }
+#compare-result th { background-color:#bfa34c; color:white; }
