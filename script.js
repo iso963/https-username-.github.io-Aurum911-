@@ -1,229 +1,135 @@
-/* ===== Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+const { useState } = React;
+
+const categories = ["عام","ملابس","إلكترونيات","اكسسوارات","الجمال","ألعاب","رياضة","مطبخ","منزل","حيوانات أليفة","سيارات","مجوهرات","أدوات مكتبية","صحة","حدائق","موسيقى","هواتف","كمبيوتر","ملابس أطفال","أحذية"];
+const tones = ["ودود","عاجل","رسمية","مرِح","فكاهي","ملهم","مغامر","جذاب","هادئ","فخم"];
+const languages = [
+  {code:"ar", label:"العربية"},
+  {code:"en", label:"English"},
+  {code:"de", label:"Deutsch"},
+  {code:"es", label:"Español"},
+  {code:"fr", label:"Français"},
+  {code:"ru", label:"Русский"},
+  {code:"zh", label:"中文"},
+  {code:"ja", label:"日本語"},
+  {code:"pt", label:"Português"},
+  {code:"sv", label:"Svenska"},
+  {code:"fi", label:"Suomi"},
+  {code:"no", label:"Norsk"},
+  {code:"uk", label:"Українська"}
+];
+
+const translations = {
+  ar:{ lang:"اللغة", name:"اسم المنتج", short:"جملة تعريفية قصيرة", long:"جملة تعريفية طويلة",
+       features:"مواصفات (مع أو بدون فواصل)", category:"الفئة", tone:"النبرة", length:"عدد النتائج",
+       hashtags:"إضافة هاشتاجات تلقائية", generate:"انشاء الوصفات", clear:"مسح",
+       preview:"معاينة النتائج", copy:"انسخ", copyAll:"انسخ الكل", download:"تحميل CSV",
+       placeholder:"اضغط لإنشاء وصف المنتج" },
+  en:{ lang:"Language", name:"Product Name", short:"Short Description", long:"Long Description",
+       features:"Features (comma optional)", category:"Category", tone:"Tone", length:"Number of results",
+       hashtags:"Include hashtags", generate:"Generate", clear:"Clear",
+       preview:"Preview Results", copy:"Copy", copyAll:"Copy All", download:"Download CSV",
+       placeholder:"Click to generate product description" }
+};
+
+function sampleHashtags(category){
+  const map = {
+    "ملابس": ['#fashion','#ootd','#style','#shopnow'],
+    "إلكترونيات": ['#gadgets','#tech','#smartbuy','#deal'],
+    "اكسسوارات": ['#accessories','#handmade','#shoplocal'],
+    "الجمال": ['#skincare','#beauty','#glowup'],
+    "عام": ['#TikTokShop','#ForYou','#viral']
+  };
+  return (map[category] || map["عام"]).slice(0,3).join(' ');
 }
 
-body {
-  background: #ffffff;
-  color: #1a1a1a;
-  padding: 20px;
-  text-align: center;
+function titleCase(str){
+  return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 }
 
-/* ===== Headers ===== */
-h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #d4a017;
-  margin-bottom: 10px;
+function buildBullets(features){
+  if(!features) return '';
+  const arr = features.split(/,|\n/).map(s=>s.trim()).filter(Boolean);
+  return arr.slice(0,7).map(f=>`• ${f}`).join('\n');
 }
 
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 25px;
+function generateVariants({name, shortDesc, longDesc, features, tone, category, length, includeHashtags}){
+  const title = titleCase(name || 'Amazing Product');
+  const bullets = buildBullets(features);
+  const hashtags = includeHashtags ? sampleHashtags(category) : '';
+  const toneTexts = {
+    "ودود":["جرب هذا!","ستحبه!","مثالي للاستخدام اليومي."],
+    "عاجل":["كمية محدودة - أسرع!","لا تفوت الفرصة!","احصل عليه الآن!"],
+    "رسمية":["بجودة عالية.","مصنوع بعناية.","موثوق للمحترفين."],
+    "مرِح":["اجعل يومك أفضل!","لطيف ومريح وفيروسي.","مستعد للانتشار!"],
+    "فكاهي":["هل أنت مستعد للضحك؟","ابتسامة على وجهك!","مرح للكل."],
+    "ملهم":["اكتشف الإمكانيات!","ستشعر بالإلهام!","اجعلها عادة يومية!"],
+    "مغامر":["تجرأ على التجربة!","عيش المغامرة!","اكتشف الجديد!"],
+    "جذاب":["أسرق الأنظار!","تألق في كل مكان!","لا يمكن تجاهله!"],
+    "هادئ":["راحة وأناقة.","بهدوء وجمال.","مثالي للاسترخاء."],
+    "فخم":["ترف وجودة.","يشع بالفخامة.","تجربة مميزة."]
+  };
+  const t = toneTexts[tone] || toneTexts["ودود"];
+  const variants = [];
+  const useBullets = bullets ? `\n${bullets}\n` : '\n';
+  variants.push(`${title} — ${shortDesc} ${t[0]} ${hashtags}`);
+  variants.push(`${title}: ${shortDesc} ${t[1]} ${useBullets} ${hashtags}`);
+  variants.push(`${title} — ${longDesc} ${t[2]} ${useBullets} ${hashtags}`);
+  variants.push(`${t[1]} ${title}! ${shortDesc} ${useBullets} ${hashtags} 🔥`);
+  variants.push(`${title} — ${shortDesc} ${hashtags}`);
+  return variants.slice(0,length || 3);
 }
 
-p {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  opacity: 0.85;
+function App(){
+  const [lang,setLang] = useState('ar');
+  const t = translations[lang];
+
+  const [name,setName] = useState('مروحة صغيرة محمولة');
+  const [shortDesc,setShortDesc] = useState('مروحة قابلة للشحن 3 سرعات');
+  const [longDesc,setLongDesc] = useState('مروحة صغيرة قابلة للشحن مع 3 سرعات، تصميم مدمج وهادئ، مثالية للاستخدام المنزلي والمكتبي.');
+  const [features,setFeatures] = useState('USB-C recharge, 3 speeds, Silent motor, 10 hour battery');
+  const [category,setCategory] = useState('عام');
+  const [tone,setTone] = useState('ودود');
+  const [length,setLength] = useState(3);
+  const [includeHashtags,setIncludeHashtags] = useState(true);
+  const [variants,setVariants] = useState([]);
+
+  function onGenerate(e){ e.preventDefault(); setVariants(generateVariants({name, shortDesc, longDesc, features, tone, category, length, includeHashtags})); }
+  function copyText(text){ navigator.clipboard.writeText(text).then(()=>alert(t.copy)); }
+  function downloadCSV(){ const csv = variants.map(v=>`"${v.replace(/"/g,'""')}"`).join('\n'); const blob=new Blob([csv],{type:'text/csv'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='descriptions.csv'; a.click(); URL.revokeObjectURL(url); }
+
+  return (
+    <div className="bg-white p-6 rounded-2xl shadow w-full">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">TikTok Shop — مولد وصف المنتجات</h1>
+        <select value={lang} onChange={e=>setLang(e.target.value)} className="border rounded p-2">{languages.map(l=><option key={l.code} value={l.code}>{l.label}</option>)}</select>
+      </div>
+      <form onSubmit={onGenerate} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label>{t.name}</label>
+          <input value={name} onChange={e=>setName(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.short}</label>
+          <input value={shortDesc} onChange={e=>setShortDesc(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.long}</label>
+          <textarea value={longDesc} onChange={e=>setLongDesc(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.features}</label>
+          <textarea value={features} onChange={e=>setFeatures(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.category}</label>
+          <select value={category} onChange={e=>setCategory(e.target.value)} className="w-full p-2 border rounded mt-1">{categories.map(c=><option key={c} value={c}>{c}</option>)}</select>
+          <label className="mt-2">{t.tone}</label>
+          <select value={tone} onChange={e=>setTone(e.target.value)} className="w-full p-2 border rounded mt-1">{tones.map(c=><option key={c} value={c}>{c}</option>)}</select>
+          <label className="mt-2">{t.length}</label>
+          <input type="number" value={length} min={1} max={10} onChange={e=>setLength(Number(e.target.value))} className="w-24 p-2 border rounded mt-1"/>
+          <div className="mt-2 flex items-center gap-2"><input type="checkbox" checked={includeHashtags} onChange={e=>setIncludeHashtags(e.target.checked)}/><span>{t.hashtags}</span></div>
+          <div className="mt-4 flex gap-2"><button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">{t.generate}</button><button type="button" onClick={()=>setVariants([])} className="border px-4 py-2 rounded">{t.clear}</button></div>
+        </div>
+        <div>
+          <h3 className="font-semibold">{t.preview}</h3>
+          <div className="mt-2 space-y-3">{variants.length===0 && <p className="text-gray-500">{t.placeholder}</p>}{variants.map((v,i)=><div key={i} className="bg-indigo-50 p-3 rounded border"><div className="flex justify-between items-center"><strong>وصف #{i+1}</strong><button onClick={()=>copyText(v)} className="border px-2 py-1 rounded text-sm">{t.copy}</button></div><p className="mt-2 whitespace-pre-wrap">{v}</p></div>)}</div>
+          {variants.length>0 && <div className="mt-3 flex gap-2"><button onClick={downloadCSV} className="border px-3 py-2 rounded">{t.download}</button><button onClick={()=>{navigator.clipboard.writeText(variants.join('\n\n')); alert(t.copyAll)}} className="border px-3 py-2 rounded">{t.copyAll}</button></div>}
+        </div>
+      </form>
+    </div>
+  );
 }
 
-/* ===== Navbar ===== */
-.navbar {
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 2px solid #d4a017;
-  padding: 15px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #d4a017;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
-
-.navbar ul li a {
-  text-decoration: none;
-  font-size: 1.1rem;
-  color: #1a1a1a;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-
-.navbar ul li a:hover {
-  background: #d4a017;
-  color: white;
-}
-
-/* ===== Cards ===== */
-.card {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.card h3 {
-  color: #d4a017;
-  font-size: 1.5rem;
-}
-
-.card p {
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* ===== Compare Section ===== */
-#compare-section select, #compare-section button {
-  margin-right: 10px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-#compare-result table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-#compare-result th, #compare-result td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#compare-result th {
-  background-color: #bfa34c;
-  color: white;
-}
-
-/* ===== Search ===== */
-.search-container input {
-  width: 100%;
-  padding: 12px;
-  font-size: 1.1rem;
-  border: 2px solid #d4a017;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-// استبدل هذه القيم بالقيم الحقيقية لمشروعك في Supabase
-const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-const SUPABASE_ANON_KEY = "YOUR-ANON-KEY";
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// تحميل السيارات وعرضها
-async function loadCars() {
-    const { data: cars, error } = await supabase
-        .from('Cars')
-        .select('*')
-        .order('price_min', { ascending: true });
-
-    if (error) {
-        console.error("Supabase error:", error);
-        return;
-    }
-
-    const list = document.getElementById('cars-list');
-    list.innerHTML = '';
-    cars.forEach(c => {
-        const el = document.createElement('div');
-        el.className = 'card';
-        el.innerHTML = `
-            <h3>${c.name} — ${c.year_range}</h3>
-            <p>${c.description || ''}</p>
-            <p>HP: ${c.horsepower} — 0-100 km/h: ${c.zero_100}s — Top Speed: ${c.top_speed} km/h</p>
-            <p>Price: $${c.price_min} – $${c.price_max}</p>
-        `;
-        list.appendChild(el);
-    });
-
-    setupCompare(cars);
-    setupSearch(cars);
-}
-
-// تهيئة المقارنة
-function setupCompare(cars) {
-    const select1 = document.getElementById('compare-select1');
-    const select2 = document.getElementById('compare-select2');
-    select1.innerHTML = '<option value="">Select Car 1</option>';
-    select2.innerHTML = '<option value="">Select Car 2</option>';
-
-    cars.forEach(c => {
-        const option1 = document.createElement('option');
-        option1.value = c.id;
-        option1.textContent = c.name;
-        select1.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = c.id;
-        option2.textContent = c.name;
-        select2.appendChild(option2);
-    });
-
-    document.getElementById('compare-button').onclick = () => {
-        const car1 = cars.find(c => c.id == select1.value);
-        const car2 = cars.find(c => c.id == select2.value);
-        const resultDiv = document.getElementById('compare-result');
-
-        if (!car1 || !car2) {
-            resultDiv.innerHTML = 'اختر سيارتين للمقارنة!';
-            return;
-        }
-
-        resultDiv.innerHTML = `
-            <h3>Comparison: ${car1.name} vs ${car2.name}</h3>
-            <table>
-                <tr><th>Feature</th><th>${car1.name}</th><th>${car2.name}</th></tr>
-                <tr><td>Year</td><td>${car1.year_range}</td><td>${car2.year_range}</td></tr>
-                <tr><td>HP</td><td>${car1.horsepower}</td><td>${car2.horsepower}</td></tr>
-                <tr><td>0-100 km/h</td><td>${car1.zero_100}</td><td>${car2.zero_100}</td></tr>
-                <tr><td>Top Speed</td><td>${car1.top_speed}</td><td>${car2.top_speed}</td></tr>
-                <tr><td>Price</td><td>$${car1.price_min} – $${car1.price_max}</td><td>$${car2.price_min} – $${car2.price_max}</td></tr>
-            </table>
-        `;
-    };
-}
-
-// تهيئة البحث
-function setupSearch(cars) {
-    const input = document.getElementById('searchInput');
-    input.oninput = () => {
-        const term = input.value.toLowerCase();
-        const filtered = cars.filter(c => c.name.toLowerCase().includes(term));
-        const list = document.getElementById('cars-list');
-        list.innerHTML = '';
-        filtered.forEach(c => {
-            const el = document.createElement('div');
-            el.className = 'card';
-            el.innerHTML = `
-                <h3>${c.name} — ${c.year_range}</h3>
-                <p>${c.description || ''}</p>
-                <p>HP: ${c.horsepower} — 0-100 km/h: ${c.zero_100}s — Top Speed: ${c.top_speed} km/h</p>
-                <p>Price: $${c.price_min} – $${c.price_max}</p>
-            `;
-            list.appendChild(el);
-        });
-    };
-}
-
-document.addEventListener('DOMContentLoaded', loadCars);
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
