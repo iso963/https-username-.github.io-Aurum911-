@@ -1,115 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurum911</title>
-  <meta name="description" content="Aurum911: Explore Porsche 911 models, prices, and comparisons in multiple languages.">
-  <meta name="keywords" content="Porsche 911, Aurum911, Porsche Prices, Car Comparison, Luxury Cars">
-  <meta name="author" content="Aurum911">
-  <link rel="canonical" href="https://iso963.github.io/Aurum911/">
-  <meta name="robots" content="index, follow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TikTok Shop — مولد وصف المنتجات | SEO Friendly</title>
+<meta name="description" content="مولد وصف منتجات تيك توك شوب — اصنع وصفًا جذابًا للمنتجات باللغة العربية أو الإنجليزية مع هاشتاجات SEO جاهزة.">
+<meta name="keywords" content="TikTok Shop, مولد وصف المنتجات, وصف منتجات, SEO, هاشتاجات, TikTok Marketing, منتجات تيك توك">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<!-- React + ReactDOM -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  <!-- JS -->
-  <script src="script.js" defer></script>
+<!-- Babel for JSX -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="en" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="ar" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="de" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="fr" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="es" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="it" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="pt" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="hi" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="bn" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="zh" href="https://iso963.github.io/Aurum911/index.html">
-  <link rel="alternate" hreflang="ja" href="https://iso963.github.io/Aurum911/index.html">
-
-  <!-- Multilingual -->
-  <script>
-    const translations = {
-      ar: { title: "أوروم 911 - Aurum911", description: "منصة متعددة اللغات تقدم خدمات عالمية.", welcome: "مرحباً بك في موقعنا" },
-      en: { title: "Aurum911", description: "A multilingual platform offering global services.", welcome: "Welcome to our website" },
-      de: { title: "Aurum911", description: "Eine mehrsprachige Plattform mit globalen Diensten.", welcome: "Willkommen auf unserer Webseite" },
-      fr: { title: "Aurum911", description: "Une plateforme multilingue offrant des services mondiaux.", welcome: "Bienvenue sur notre site" },
-      es: { title: "Aurum911", description: "Plataforma multilingüe con servicios globales.", welcome: "Bienvenido a nuestro sitio web" },
-      it: { title: "Aurum911", description: "Piattaforma multilingue con servizi globali.", welcome: "Benvenuto nel nostro sito web" },
-      pt: { title: "Aurum911", description: "Plataforma multilíngue com serviços globais.", welcome: "Bem-vindo ao nosso site" },
-      hi: { title: "Aurum911", description: "वैश्विक सेवाओं के साथ बहुभाषी प्लेटफ़ॉर्म।", welcome: "हमारी वेबसाइट पर आपका स्वागत है" },
-      bn: { title: "Aurum911", description: "গ্লোবাল পরিষেবা সহ একটি বহু ভাষিক প্ল্যাটফর্ম।", welcome: "আমাদের ওয়েবসাইটে স্বাগতম" },
-      zh: { title: "Aurum911", description: "提供全球服务的多语言平台。", welcome: "欢迎来到我们的网站" },
-      ja: { title: "Aurum911", description: "世界的なサービスを提供する多言語プラットフォーム。", welcome: "当サイトへようこそ" }
-    };
-
-    function setLanguage(lang) {
-      document.getElementById("title").innerText = translations[lang].title;
-      document.getElementById("desc").innerText = translations[lang].description;
-      document.getElementById("welcome").innerText = translations[lang].welcome;
-    }
-  </script>
+<style>
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+h1,h3 { font-family: 'Arial Black', Gadget, sans-serif; }
+::placeholder { color: #9ca3af; }
+</style>
 </head>
+<body class="bg-gradient-to-r from-indigo-100 via-purple-100 to-pink-100 min-h-screen flex justify-center">
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">Aurum911</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#cars-section">Models</a></li>
-      <li><a href="#compare-section">Comparison</a></li>
-    </ul>
-  </nav>
+<div id="root" class="w-full max-w-6xl p-6"></div>
 
-  <!-- Header -->
-  <header id="home">
-    <h1 id="title">Aurum911</h1>
-    <p id="desc">A multilingual platform offering global services.</p>
-    <h2 id="welcome">Welcome to our website</h2>
-  </header>
+<script type="text/babel">
+const { useState } = React;
 
-  <!-- Language Selector -->
-  <div class="language-selector">
-    <select onchange="setLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="ar">العربية</option>
-      <option value="de">Deutsch</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="it">Italiano</option>
-      <option value="pt">Português</option>
-      <option value="hi">हिन्दी</option>
-      <option value="bn">বাংলা</option>
-      <option value="zh">中文</option>
-      <option value="ja">日本語</option>
-    </select>
-  </div>
+// الفئات والنبرات واللغات
+const categories = ["عام","ملابس","إلكترونيات","اكسسوارات","الجمال","ألعاب","رياضة","مطبخ","منزل","حيوانات أليفة","سيارات","مجوهرات","أدوات مكتبية","صحة","حدائق","موسيقى","هواتف","كمبيوتر","ملابس أطفال","أحذية"];
+const tones = ["ودود","عاجل","رسمية","مرِح","فكاهي","ملهم","مغامر","جذاب","هادئ","فخم"];
+const languages = [
+  {code:"ar", label:"العربية"},
+  {code:"en", label:"English"},
+  {code:"de", label:"Deutsch"},
+  {code:"es", label:"Español"},
+  {code:"fr", label:"Français"},
+  {code:"ru", label:"Русский"},
+  {code:"zh", label:"中文"},
+  {code:"ja", label:"日本語"},
+  {code:"pt", label:"Português"},
+  {code:"sv", label:"Svenska"},
+  {code:"fi", label:"Suomi"},
+  {code:"no", label:"Norsk"},
+  {code:"uk", label:"Українська"}
+];
 
-  <!-- Search -->
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search Models...">
-  </div>
+// ترجمة الواجهة
+const translations = {
+  ar:{ lang:"اللغة", name:"اسم المنتج", short:"جملة تعريفية قصيرة", long:"جملة تعريفية طويلة",
+       features:"مواصفات (مع أو بدون فواصل)", category:"الفئة", tone:"النبرة", length:"عدد النتائج",
+       hashtags:"إضافة هاشتاجات تلقائية", generate:"انشاء الوصفات", clear:"مسح",
+       preview:"معاينة النتائج", copy:"انسخ", copyAll:"انسخ الكل", download:"تحميل CSV",
+       placeholder:"اضغط لإنشاء وصف المنتج" },
+  en:{ lang:"Language", name:"Product Name", short:"Short Description", long:"Long Description",
+       features:"Features (comma optional)", category:"Category", tone:"Tone", length:"Number of results",
+       hashtags:"Include hashtags", generate:"Generate", clear:"Clear",
+       preview:"Preview Results", copy:"Copy", copyAll:"Copy All", download:"Download CSV",
+       placeholder:"Click to generate product description" }
+};
 
-  <!-- Cars List -->
-  <section id="cars-section">
-    <div id="cars-list">
-      <!-- السيارات ستظهر هنا تلقائيًا -->
+// دوال مساعدة
+function sampleHashtags(category){
+  const map = {
+    "ملابس": ['#fashion','#ootd','#style','#shopnow'],
+    "إلكترونيات": ['#gadgets','#tech','#smartbuy','#deal'],
+    "اكسسوارات": ['#accessories','#handmade','#shoplocal'],
+    "الجمال": ['#skincare','#beauty','#glowup'],
+    "عام": ['#TikTokShop','#ForYou','#viral']
+  };
+  return (map[category] || map["عام"]).slice(0,3).join(' ');
+}
+
+function titleCase(str){
+  return str.replace(/\w\S*/g, txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+}
+
+function buildBullets(features){
+  if(!features) return '';
+  const arr = features.split(/,|\n/).map(s=>s.trim()).filter(Boolean);
+  return arr.slice(0,7).map(f=>`• ${f}`).join('\n');
+}
+
+function generateVariants({name, shortDesc, longDesc, features, tone, category, length, includeHashtags}){
+  const title = titleCase(name || 'Amazing Product');
+  const bullets = buildBullets(features);
+  const hashtags = includeHashtags ? sampleHashtags(category) : '';
+  const toneTexts = {
+    "ودود":["جرب هذا!","ستحبه!","مثالي للاستخدام اليومي."],
+    "عاجل":["كمية محدودة - أسرع!","لا تفوت الفرصة!","احصل عليه الآن!"],
+    "رسمية":["بجودة عالية.","مصنوع بعناية.","موثوق للمحترفين."],
+    "مرِح":["اجعل يومك أفضل!","لطيف ومريح وفيروسي.","مستعد للانتشار!"],
+    "فكاهي":["هل أنت مستعد للضحك؟","ابتسامة على وجهك!","مرح للكل."],
+    "ملهم":["اكتشف الإمكانيات!","ستشعر بالإلهام!","اجعلها عادة يومية!"],
+    "مغامر":["تجرأ على التجربة!","عيش المغامرة!","اكتشف الجديد!"],
+    "جذاب":["أسرق الأنظار!","تألق في كل مكان!","لا يمكن تجاهله!"],
+    "هادئ":["راحة وأناقة.","بهدوء وجمال.","مثالي للاسترخاء."],
+    "فخم":["ترف وجودة.","يشع بالفخامة.","تجربة مميزة."]
+  };
+  const t = toneTexts[tone] || toneTexts["ودود"];
+  const variants = [];
+  const useBullets = bullets ? `\n${bullets}\n` : '\n';
+  variants.push(`${title} — ${shortDesc} ${t[0]} ${hashtags}`);
+  variants.push(`${title}: ${shortDesc} ${t[1]} ${useBullets} ${hashtags}`);
+  variants.push(`${title} — ${longDesc} ${t[2]} ${useBullets} ${hashtags}`);
+  variants.push(`${t[1]} ${title}! ${shortDesc} ${useBullets} ${hashtags} 🔥`);
+  variants.push(`${title} — ${shortDesc} ${hashtags}`);
+  return variants.slice(0,length || 3);
+}
+
+// المكون الرئيسي
+function App(){
+  const [lang,setLang] = useState('ar');
+  const t = translations[lang];
+
+  const [name,setName] = useState('مروحة صغيرة محمولة');
+  const [shortDesc,setShortDesc] = useState('مروحة قابلة للشحن 3 سرعات');
+  const [longDesc,setLongDesc] = useState('مروحة صغيرة قابلة للشحن مع 3 سرعات، تصميم مدمج وهادئ، مثالية للاستخدام المنزلي والمكتبي.');
+  const [features,setFeatures] = useState('USB-C recharge, 3 speeds, Silent motor, 10 hour battery');
+  const [category,setCategory] = useState('عام');
+  const [tone,setTone] = useState('ودود');
+  const [length,setLength] = useState(3);
+  const [includeHashtags,setIncludeHashtags] = useState(true);
+  const [variants,setVariants] = useState([]);
+
+  function onGenerate(e){ e.preventDefault(); setVariants(generateVariants({name, shortDesc, longDesc, features, tone, category, length, includeHashtags})); }
+  function copyText(text){ navigator.clipboard.writeText(text).then(()=>alert(t.copy)); }
+  function downloadCSV(){ const csv = variants.map(v=>`"${v.replace(/"/g,'""')}"`).join('\n'); const blob=new Blob([csv],{type:'text/csv'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='descriptions.csv'; a.click(); URL.revokeObjectURL(url); }
+
+  return (
+    <div className="bg-white p-6 rounded-2xl shadow w-full">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">TikTok Shop — مولد وصف المنتجات</h1>
+        <select value={lang} onChange={e=>setLang(e.target.value)} className="border rounded p-2">{languages.map(l=><option key={l.code} value={l.code}>{l.label}</option>)}</select>
+      </div>
+      <form onSubmit={onGenerate} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label>{t.name}</label>
+          <input value={name} onChange={e=>setName(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.short}</label>
+          <input value={shortDesc} onChange={e=>setShortDesc(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.long}</label>
+          <textarea value={longDesc} onChange={e=>setLongDesc(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.features}</label>
+          <textarea value={features} onChange={e=>setFeatures(e.target.value)} className="w-full p-2 border rounded mt-1"/>
+          <label className="mt-2">{t.category}</label>
+          <select value={category} onChange={e=>setCategory(e.target.value)} className="w-full p-2 border rounded mt-1">{categories.map(c=><option key={c} value={c}>{c}</option>)}</select>
+          <label className="mt-2">{t.tone}</label>
+          <select value={tone} onChange={e=>setTone(e.target.value)} className="w-full p-2 border rounded mt-1">{tones.map(c=><option key={c} value={c}>{c}</option>)}</select>
+          <label className="mt-2">{t.length}</label>
+          <input type="number" value={length} min={1} max={10} onChange={e=>setLength(Number(e.target.value))} className="w-24 p-2 border rounded mt-1"/>
+          <div className="mt-2 flex items-center gap-2"><input type="checkbox" checked={includeHashtags} onChange={e=>setIncludeHashtags(e.target.checked)}/><span>{t.hashtags}</span></div>
+          <div className="mt-4 flex gap-2"><button type="submit" className="bg-indigo-600 text-white px-4 py-2 rounded">{t.generate}</button><button type="button" onClick={()=>setVariants([])} className="border px-4 py-2 rounded">{t.clear}</button></div>
+        </div>
+        <div>
+          <h3 className="font-semibold">{t.preview}</h3>
+          <div className="mt-2 space-y-3">{variants.length===0 && <p className="text-gray-500">{t.placeholder}</p>}{variants.map((v,i)=><div key={i} className="bg-indigo-50 p-3 rounded border"><div className="flex justify-between items-center"><strong>وصف #{i+1}</strong><button onClick={()=>copyText(v)} className="border px-2 py-1 rounded text-sm">{t.copy}</button></div><p className="mt-2 whitespace-pre-wrap">{v}</p></div>)}</div>
+          {variants.length>0 && <div className="mt-3 flex gap-2"><button onClick={downloadCSV} className="border px-3 py-2 rounded">{t.download}</button><button onClick={()=>{navigator.clipboard.writeText(variants.join('\n\n')); alert(t.copyAll)}} className="border px-3 py-2 rounded">{t.copyAll}</button></div>}
+        </div>
+      </form>
     </div>
-  </section>
+  );
+}
 
-  <!-- Compare Section -->
-  <section id="compare-section">
-    <h2>Compare Cars</h2>
-    <select id="compare-select1"><option value="">Select Car 1</option></select>
-    <select id="compare-select2"><option value="">Select Car 2</option></select>
-    <button id="compare-button">Compare Now</button>
-    <div id="compare-result"></div>
-  </section>
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
 </body>
 </html>
